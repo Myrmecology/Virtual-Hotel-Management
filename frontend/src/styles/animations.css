@@ -1,0 +1,325 @@
+/* ============================================
+   VIRTUAL HOTEL MANAGEMENT - ANIMATIONS
+   ============================================ */
+
+/* ============================================
+   FADE ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+/* ============================================
+   SLIDE ANIMATIONS
+   ============================================ */
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.4s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.4s ease-out;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.4s ease-out;
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+/* ============================================
+   GLITCH EFFECT
+   ============================================ */
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
+.glitch-once {
+  animation: glitch 0.3s;
+}
+
+/* ============================================
+   ZOOM ANIMATIONS
+   ============================================ */
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.3s ease-out;
+}
+
+.zoom-out {
+  animation: zoomOut 0.3s ease-out;
+}
+
+/* ============================================
+   ROTATE ANIMATIONS
+   ============================================ */
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* ============================================
+   SHAKE ANIMATION
+   ============================================ */
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+/* ============================================
+   VIRTUAL BOY SPECIFIC ANIMATIONS
+   ============================================ */
+
+@keyframes vboyFlash {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  }
+}
+
+.vboy-flash {
+  animation: vboyFlash 0.5s;
+}
+
+@keyframes vboyGlowPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px rgba(255, 0, 0, 0.5),
+      0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px rgba(255, 0, 0, 0.8),
+      0 0 20px rgba(255, 0, 0, 0.8),
+      0 0 30px rgba(255, 0, 0, 0.6);
+  }
+}
+
+.vboy-glow-pulse {
+  animation: vboyGlowPulse 2s infinite;
+}
+
+@keyframes vboyBorderPulse {
+  0%, 100% {
+    border-color: #FF0000;
+    box-shadow: none;
+  }
+  50% {
+    border-color: #FF0000;
+    box-shadow: 
+      0 0 10px rgba(255, 0, 0, 0.6),
+      inset 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+}
+
+.vboy-border-pulse {
+  animation: vboyBorderPulse 2s infinite;
+}
+
+/* ============================================
+   WIREFRAME DRAWING ANIMATION
+   ============================================ */
+
+@keyframes drawWireframe {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-wireframe {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawWireframe 2s ease-out forwards;
+}
+
+/* ============================================
+   TYPEWRITER EFFECT
+   ============================================ */
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 2s steps(40) forwards;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+.slow {
+  animation-duration: 2s !important;
+}
+
+.fast {
+  animation-duration: 0.15s !important;
+}
