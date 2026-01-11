@@ -37,7 +37,7 @@ const apiPrefix = process.env.API_PREFIX || '/api/v1';
 app.use(apiPrefix, routes);
 
 // Root endpoint
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.json({
     success: true,
     message: 'Virtual Hotel Management API',

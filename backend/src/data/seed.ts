@@ -3,15 +3,36 @@ import { RoomModel } from '../models/Room';
 import { GuestModel } from '../models/Guest';
 import { BookingModel } from '../models/Booking';
 
+// Wait for database to be ready
+async function waitForDatabase(maxAttempts = 10): Promise<void> {
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      await database.get('SELECT 1');
+      return;
+    } catch (err) {
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+  }
+  throw new Error('Database failed to initialize');
+}
+
 async function seedDatabase() {
   console.log('🌱 Seeding database...');
 
   try {
+    // Wait for database to be ready
+    await waitForDatabase();
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Extra wait for table creation
+
     // Clear existing data
-    await database.run('DELETE FROM bookings');
-    await database.run('DELETE FROM guests');
-    await database.run('DELETE FROM rooms');
-    console.log('✅ Cleared existing data');
+    try {
+      await database.run('DELETE FROM bookings');
+      await database.run('DELETE FROM guests');
+      await database.run('DELETE FROM rooms');
+      console.log('✅ Cleared existing data');
+    } catch (err) {
+      console.log('⚠️  No existing data to clear (tables may be new)');
+    }
 
     // Seed Rooms
     console.log('📦 Creating rooms...');

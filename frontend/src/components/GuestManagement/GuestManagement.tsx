@@ -48,9 +48,9 @@ const GuestManagement: React.FC = () => {
   };
 
   const handleGuestSelect = (guest: Guest) => {
-    setSelectedGuest(guest);
-    setShowForm(false);
-  };
+  setSelectedGuest(guest);
+  setShowForm(true);  // ← Change false to true
+};
 
   const handleCreateNew = () => {
     setSelectedGuest(null);

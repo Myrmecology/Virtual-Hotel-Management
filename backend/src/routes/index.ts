@@ -11,7 +11,7 @@ router.use('/guests', guestRoutes);
 router.use('/bookings', bookingRoutes);
 
 // Health check endpoint
-router.get('/health', (req, res) => {
+router.get('/health', (_req, res) => {
   res.json({
     success: true,
     message: 'Virtual Hotel Management API is running',
